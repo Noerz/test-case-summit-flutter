@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: "Presensi School",
+      title: "Weather App",
       initialBinding: InitialBindings(),
       initialRoute: AppPages.INITIAL,
       getPages: AppPages.routes,

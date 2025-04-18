@@ -12,7 +12,19 @@ class TopBar extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Icon(Icons.settings, color: Colors.white, size: 28),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Selamat datang !',
+              style: TextStyle(color: Colors.white, fontSize: 18),
+            ),
+            Text(
+              '${TimeOfDay.now().format(context)}',
+              style: TextStyle(color: Colors.white70, fontSize: 14),
+            ),
+          ],
+        ),
         IconButton(
           icon: Icon(Icons.gps_fixed, color: Colors.white),
           onPressed: () async {

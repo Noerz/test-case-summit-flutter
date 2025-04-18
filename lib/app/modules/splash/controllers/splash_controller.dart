@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:weather_app/app/routes/app_pages.dart';
+import 'package:get_storage/get_storage.dart';
 
 class SplashController extends GetxController {
   final logoVisible = false.obs;
@@ -12,7 +13,12 @@ class SplashController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    startAnimations();
+    final storage = GetStorage();
+    if (storage.read('skipSplash') == true) {
+      goToNext();
+    } else {
+      startAnimations();
+    }
   }
 
   void startAnimations() async {
@@ -29,11 +35,15 @@ class SplashController extends GetxController {
   void goToNext() async {
     isLoading.value = true;
     await Future.delayed(const Duration(milliseconds: 500));
-    Get.offAllNamed(Routes.HOME);
+    Get.offAllNamed(Routes.LOGIN);
   }
 
   void skip() {
     showSkip.value = false;
-    print("Perintah skip dijalankan");
+    final storage = GetStorage();
+    storage.write('skipSplash', true);
+    final cek = storage.read('skipSplash') ;
+    print("Perintah skip dijalankan + isi dari cek ${cek}");
+    goToNext();
   }
 }

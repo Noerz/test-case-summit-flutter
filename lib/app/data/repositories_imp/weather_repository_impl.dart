@@ -16,9 +16,15 @@ class WeatherRepositoryImpl extends WeatherRepository {
         options: Options(headers: {'Content-Type': 'application/json'}),
         queryParameters: {'q': city, 'appid': apiKey, 'units': 'metric'},
       );
-      return response.data; // Return the response data
+      if (response.statusCode == 200) {
+        return response.data; // Return the response data
+      } else if (response.statusCode == 404) {
+        throw Exception('City not found: $city');
+      } else {
+        throw Exception('Failed to fetch weather data: ${response.statusCode} ${response.statusMessage}');
+      }
     } catch (e) {
-      throw Exception('Failed to fetch weather data: $e');
+      throw Exception('Failed to fetch weather data for city "$city": $e');
     }
   }
 
@@ -31,15 +37,15 @@ class WeatherRepositoryImpl extends WeatherRepository {
         options: Options(headers: {'Content-Type': 'application/json'}),
         queryParameters: {'lat': lat, 'lon': lon, 'appid': apiKey, 'units': 'metric'},
       );
-      return response.data; // Return the response data
+      if (response.statusCode == 200) {
+        return response.data; // Return the response data
+      } else if (response.statusCode == 404) {
+        throw Exception('Coordinates not found: lat=$lat, lon=$lon');
+      } else {
+        throw Exception('Failed to fetch weather data: ${response.statusCode} ${response.statusMessage}');
+      }
     } catch (e) {
-      throw Exception('Failed to fetch weather data: $e');
+      throw Exception('Failed to fetch weather data for coordinates (lat=$lat, lon=$lon): $e');
     }
   }
-
-  // @override
-  // Future<List<WeatherModel>> getWeatherList(List<String> cities) {
-  //   // TODO: implement getWeatherList
-  //   throw UnimplementedError();
-  // }
 }

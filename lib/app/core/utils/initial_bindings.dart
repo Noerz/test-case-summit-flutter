@@ -18,8 +18,8 @@ class InitialBindings extends Bindings {
       permanent: true,
     );
     Get.put<WeatherRepository>(WeatherRepositoryImpl(client: Get.find<Dio>()));
-    Get.put(SplashController(), permanent: true);
-    Get.put(LoginController(), permanent: true);
-    Get.put(HomeController(), permanent: true);
+    // Get.put(SplashController(), permanent: true);
+    // Get.put(LoginController(), permanent: true);
+    // Get.put(HomeController(), permanent: true);
   }
 }

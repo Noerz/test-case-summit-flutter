@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:weather_app/app/modules/home/controllers/home_controller.dart';
+import 'package:weather_app/app/modules/home/widgets/city_input_dialog.dart';
 
 class CustomBottomBar extends StatelessWidget {
   final VoidCallback onLogout;
@@ -36,60 +37,10 @@ class CustomBottomBar extends StatelessWidget {
   }
 
   void _showCityInputDialog(BuildContext context) {
-    final TextEditingController cityController = TextEditingController();
     showDialog(
       context: context,
       barrierDismissible: true,
-      builder: (context) {
-        return Dialog(
-          insetPadding: const EdgeInsets.all(16),
-          child: SingleChildScrollView(
-            child: Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  const Text(
-                    'Enter City Name',
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                  ),
-                  const SizedBox(height: 16),
-                  TextField(
-                    controller: cityController,
-                    decoration: const InputDecoration(
-                      hintText: 'City Name',
-                      border: OutlineInputBorder(),
-                    ),
-                  ),
-                  const SizedBox(height: 16),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      TextButton(
-                        onPressed: () {
-                          Navigator.of(context).pop();
-                        },
-                        child: const Text('Cancel'),
-                      ),
-                      const SizedBox(width: 8),
-                      TextButton(
-                        onPressed: () {
-                          final cityName = cityController.text.trim();
-                          if (cityName.isNotEmpty) {
-                            controller.fetchWeatherByCity(cityName);
-                          }
-                          Navigator.of(context).pop();
-                        },
-                        child: const Text('Search'),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-          ),
-        );
-      },
+      builder: (context) => CityInputDialog(controller: controller),
     );
   }
 }
