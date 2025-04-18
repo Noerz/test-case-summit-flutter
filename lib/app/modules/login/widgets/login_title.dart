@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+/// Widget yang menampilkan judul halaman login.
+/// 
+/// Judul ini menggunakan teks "Weather Login" dengan gaya teks yang
+/// telah ditentukan, seperti ukuran font, ketebalan, warna, dan jarak antar huruf.
 class LoginTitle extends StatelessWidget {
   const LoginTitle({super.key});
 

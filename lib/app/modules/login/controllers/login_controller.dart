@@ -1,6 +1,8 @@
 import 'package:get/get.dart';
 import 'package:weather_app/app/routes/app_pages.dart';
 
+/*LoginController adalah controller untuk halaman LoginView. 
+ Controller ini mengatur animasi ikon awan, validasi input, dan proses login.*/
 class LoginController extends GetxController {
   final cloudAnim = false.obs;
   final buttonScale = 1.0.obs;
@@ -16,6 +18,7 @@ class LoginController extends GetxController {
     cloudAnim.value = true;
   }
 
+  // handleLogin menangani proses login, termasuk animasi tombol dan navigasi ke halaman Home.
   void handleLogin() async {
     isLoading.value = true;
     buttonScale.value = 0.95;
@@ -25,6 +28,7 @@ class LoginController extends GetxController {
     Get.offAllNamed(Routes.HOME);
   }
 
+  // validateEmail dan validatePassword adalah metode untuk memvalidasi input email dan password.
   String? validateEmail(String? value) {
     if (value == null || value.isEmpty) {
       return 'Email is required';

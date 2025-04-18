@@ -10,6 +10,8 @@ import 'package:weather_app/app/modules/login/widgets/login_inputs.dart';
 import 'package:weather_app/app/modules/login/widgets/login_button.dart';
 import 'package:weather_app/app/modules/login/widgets/additional_options.dart';
 
+/* LoginView adalah halaman login aplikasi yang memungkinkan pengguna untuk masuk dengan email dan password.
+ Halaman ini memiliki animasi ikon awan, input form, dan tombol login.*/
 class LoginView extends GetView<LoginController> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
@@ -39,6 +41,7 @@ class LoginView extends GetView<LoginController> {
     );
   }
 
+  // _buildForm adalah metode privat yang membangun form login, termasuk input email, password, dan tombol login.
   Widget _buildForm(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
     final screenWidth = MediaQuery.of(context).size.width;

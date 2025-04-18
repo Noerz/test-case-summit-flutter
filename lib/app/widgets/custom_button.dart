@@ -1,5 +1,17 @@
 import 'package:flutter/material.dart';
 
+/// Widget tombol kustom dengan berbagai opsi gaya dan animasi.
+///
+/// Properti:
+/// - [text]: Teks yang akan ditampilkan pada tombol.
+/// - [onPressed]: Fungsi callback yang akan dipanggil saat tombol ditekan.
+/// - [width]: Lebar tombol (default: double.infinity).
+/// - [height]: Tinggi tombol (default: 50.0).
+/// - [backgroundColor]: Warna latar belakang tombol (default: Colors.blue).
+/// - [textColor]: Warna teks pada tombol (default: Colors.white).
+/// - [borderRadius]: Radius sudut tombol (default: 20.0).
+/// - [fontSize]: Ukuran font teks pada tombol (default: 18.0).
+/// - [isLoading]: Menentukan apakah tombol sedang dalam keadaan loading (default: false).
 class CustomButton extends StatelessWidget {
   final String text;
   final VoidCallback onPressed;
@@ -11,6 +23,7 @@ class CustomButton extends StatelessWidget {
   final double fontSize;
   final bool isLoading;
 
+  /// Membuat widget tombol kustom.
   const CustomButton({
     Key? key,
     required this.text,

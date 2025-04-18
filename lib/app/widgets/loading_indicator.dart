@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 
+/// Widget indikator loading yang menampilkan animasi dan teks.
+///
+/// Properti:
+/// - [screenHeight]: Tinggi layar yang digunakan untuk menghitung jarak antar elemen.
 class LoadingIndicator extends StatelessWidget {
   final double screenHeight;
 
+  /// Membuat widget indikator loading.
   const LoadingIndicator({required this.screenHeight, Key? key}) : super(key: key);
 
   @override

@@ -1,5 +1,13 @@
 import 'package:flutter/material.dart';
 
+/// Widget input teks kustom dengan ikon dan validasi.
+///
+/// Properti:
+/// - [controller]: Controller untuk mengelola teks yang dimasukkan.
+/// - [hintText]: Teks petunjuk yang ditampilkan di dalam input.
+/// - [icon]: Ikon yang ditampilkan di sebelah kiri input.
+/// - [isPassword]: Menentukan apakah input digunakan untuk kata sandi (default: false).
+/// - [validator]: Fungsi validasi untuk memvalidasi teks yang dimasukkan.
 class CustomTextFormField extends StatelessWidget {
   final TextEditingController controller;
   final String hintText;
@@ -7,6 +15,7 @@ class CustomTextFormField extends StatelessWidget {
   final bool isPassword;
   final String? Function(String?)? validator;
 
+  /// Membuat widget input teks kustom.
   const CustomTextFormField({
     super.key,
     required this.controller,

@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:weather_app/app/modules/login/controllers/login_controller.dart';
 
+/// Widget animasi ikon awan yang berubah secara dinamis.
+/// 
+/// Ikon ini menggunakan `AnimatedSwitcher` untuk mengganti tampilan
+/// berdasarkan nilai `cloudAnim` dari `LoginController`.
 class AnimatedCloudIcon extends StatelessWidget {
   final double screenWidth;
   final LoginController controller = Get.find();

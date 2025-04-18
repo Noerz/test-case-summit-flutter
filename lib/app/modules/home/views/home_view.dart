@@ -13,6 +13,8 @@ import '../widgets/rain_chance_text.dart';
 import '../widgets/temperature_section.dart';
 import '../widgets/hourly_forecast_section.dart';
 
+/*HomeView adalah halaman utama aplikasi yang menampilkan informasi cuaca, termasuk lokasi, 
+peluang hujan, suhu, dan prakiraan cuaca per jam.*/
 class HomeView extends GetView<HomeController> {
   const HomeView({super.key});
 
@@ -38,6 +40,7 @@ class HomeView extends GetView<HomeController> {
     );
   }
 
+  // _buildBody adalah metode yang membangun konten utama halaman berdasarkan status loading dan data cuaca.
   Widget _buildBody(double screenHeight, double screenWidth) {
     if (controller.isLoading.value) {
       return LoadingIndicator(screenHeight: screenHeight);
@@ -51,6 +54,7 @@ class HomeView extends GetView<HomeController> {
     return _buildWeatherContent(screenHeight, screenWidth, weather);
   }
 
+  // _buildErrorSection menampilkan pesan error jika data cuaca tidak tersedia.
   Widget _buildErrorSection(double screenHeight, double screenWidth) {
     return SafeArea(
       child: Center(
@@ -88,6 +92,7 @@ class HomeView extends GetView<HomeController> {
     );
   }
 
+  // _buildWeatherContent menampilkan informasi cuaca jika data tersedia.
   Widget _buildWeatherContent(double screenHeight, double screenWidth, dynamic weather) {
     return SafeArea(
       child: Padding(

@@ -8,6 +8,8 @@ import '../widgets/splash_animated_description.dart';
 import '../widgets/splash_get_started_button.dart';
 import '../widgets/splash_skip_button.dart';
 
+/*SplashView adalah halaman awal aplikasi yang menampilkan animasi logo, judul, deskripsi, 
+dan tombol "Get Started". Halaman ini menggunakan GetX untuk mengontrol visibilitas elemen-elemen tersebut.*/
 class SplashView extends GetView<SplashController> {
   const SplashView({super.key});
 
@@ -35,6 +37,8 @@ class SplashView extends GetView<SplashController> {
     );
   }
 
+  /* _buildContent adalah metode privat yang membangun konten utama halaman splash, termasuk logo, 
+   animasi judul, deskripsi, dan tombol "Get Started".*/
   Widget _buildContent(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
     final screenWidth = MediaQuery.of(context).size.width;

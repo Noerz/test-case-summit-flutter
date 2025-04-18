@@ -5,6 +5,8 @@ import 'package:weather_app/app/data/repositories/weather_repository.dart';
 import 'package:weather_app/app/data/models/weather_model.dart';
 import 'package:weather_app/app/core/utils/location_service.dart';
 
+/* HomeController adalah controller untuk halaman HomeView. 
+ Controller ini mengatur pengambilan data cuaca, lokasi perangkat, dan pengelolaan data cuaca.*/
 class HomeController extends GetxController {
   final WeatherRepository _weatherRepository = Get.find<WeatherRepository>();
   final LocationService _locationService = LocationService(); // Add LocationService instance
@@ -38,6 +40,7 @@ class HomeController extends GetxController {
     return ''; // Return empty string if weather list is empty
   }
 
+  // fetchWeatherByCity mengambil data cuaca berdasarkan nama kota.
   Future<void> fetchWeatherByCity(String city) async {
     isLoading.value = true;
     try {
@@ -77,10 +80,7 @@ class HomeController extends GetxController {
     }
   }
 
-  Future<Position> getDeviceLocation(BuildContext context) async {
-    return await _locationService.getCurrentLocation(context);
-  }
-
+  // fetchWeatherByCoordinates mengambil data cuaca berdasarkan koordinat geografis.
   Future<void> fetchWeatherByCoordinates(double lat, double lon) async {
     isLoading.value = true;
     try {
@@ -95,6 +95,12 @@ class HomeController extends GetxController {
     }
   }
 
+  // getDeviceLocation mendapatkan lokasi perangkat menggunakan LocationService.
+  Future<Position> getDeviceLocation(BuildContext context) async {
+    return await _locationService.getCurrentLocation(context);
+  }
+
+  // clearWeatherData menghapus data cuaca yang ada.
   void clearWeatherData() {
     weatherData.value = null; // Clear the weather data
   }

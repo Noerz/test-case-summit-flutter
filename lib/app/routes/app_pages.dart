@@ -9,16 +9,20 @@ import '../modules/splash/views/splash_view.dart';
 
 part 'app_routes.dart';
 
+/// Kelas untuk mengatur rute aplikasi.
+/// - Menyediakan rute awal dan daftar rute yang tersedia.
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.SPLASH;
+  static const INITIAL = Routes.SPLASH; // Rute awal aplikasi
 
+  /// Daftar rute aplikasi.
+  /// - Setiap rute memiliki nama, halaman, dan binding.
   static final routes = [
     GetPage(
-      name: _Paths.HOME,
-      page: () =>  HomeView(),
-      binding: HomeBinding(),
+      name: _Paths.HOME, // Nama rute
+      page: () => HomeView(), // Halaman yang ditampilkan
+      binding: HomeBinding(), // Binding untuk halaman ini
     ),
     GetPage(
       name: _Paths.SPLASH,

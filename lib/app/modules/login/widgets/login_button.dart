@@ -4,6 +4,10 @@ import 'package:weather_app/app/widgets/custom_button.dart';
 import 'package:weather_app/app/core/const/app_colors.dart';
 import 'package:weather_app/app/modules/login/controllers/login_controller.dart';
 
+/// Widget tombol login yang dapat diubah ukurannya secara animasi.
+/// 
+/// Tombol ini memvalidasi form sebelum memanggil fungsi login dari `LoginController`.
+/// Selain itu, tombol memiliki indikator loading saat proses login berlangsung.
 class LoginButton extends StatelessWidget {
   final GlobalKey<FormState> formKey;
   final LoginController controller;

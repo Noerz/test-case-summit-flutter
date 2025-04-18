@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:weather_app/app/widgets/custom_text_form_field.dart';
 import 'package:weather_app/app/modules/login/controllers/login_controller.dart';
 
+/// Widget yang menampilkan input email dan password untuk halaman login.
+/// 
+/// Input ini menggunakan widget `CustomTextFormField` untuk setiap field,
+/// dengan validasi yang diambil dari `LoginController`.
 class LoginInputs extends StatelessWidget {
   final TextEditingController emailController;
   final TextEditingController passwordController;
